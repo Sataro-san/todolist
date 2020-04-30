@@ -57,7 +57,7 @@ public class TaskController {
         return taskService.deleteById(id);
     }
 
-    @GetMapping("/my")
+    @GetMapping("/my-tasks")
     public List<Task> getTasksByToken(Principal principal) {
         return taskService.getAllByUserLogin(principal.getName());
     }
