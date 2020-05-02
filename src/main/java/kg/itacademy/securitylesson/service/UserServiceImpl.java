@@ -40,7 +40,6 @@ public class UserServiceImpl implements UserService {
         userRole.setRoleName("ROLE_ADMIN");
         userRole.setUser(user);
         userRoleService.create(userRole);
-
         return user;
     }
 
