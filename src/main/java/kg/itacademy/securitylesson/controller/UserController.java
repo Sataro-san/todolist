@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -33,15 +32,15 @@ public class UserController {
     }
 
     @PostMapping("/auth")
-    public ResponseEntity<String> getToken(@RequestBody UserAuth userAuth) {
+    public ResponseEntity<String> getAuth(@RequestBody UserAuth userAuth) {
         String result = userService.getToken(userAuth);
         if(result.equals("Error")) return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping("/check")
-    public User getByToken(Principal principal) {
-        String userLogin = principal.getName();
-        return userService.getByLogin(userLogin);
-    }
+//    @GetMapping("/check")
+//    public User getByToken(Principal principal) {
+//        String userLogin = principal.getName();
+//        return userService.getByLogin(userLogin);
+//    }
 }

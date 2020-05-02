@@ -42,33 +42,33 @@ public class TaskController {
         return taskService.create(taskModel, principal.getName());
     }
 
-    @PostMapping("/old")
-    public Task create(@RequestBody Task task) {
-        return taskService.create(task);
-    }
+//    @PostMapping("/old")
+//    public Task create(@RequestBody Task task) {
+//        return taskService.create(task);
+//    }
 
-    @PutMapping
-    public Task update(@RequestBody Task task) {
-        return taskService.update(task);
-    }
+//    @PutMapping
+//    public Task update(@RequestBody Task task) {
+//        return taskService.update(task);
+//    }
 
-    @DeleteMapping
-    public Task deleteById(@RequestParam(name = "id") Long id) {
-        return taskService.deleteById(id);
-    }
+//    @DeleteMapping
+//    public Task deleteById(@RequestParam(name = "id") Long id) {
+//        return taskService.deleteById(id);
+//    }
 
-    @GetMapping("/my-tasks")
-    public List<Task> getTasksByToken(Principal principal) {
+    @GetMapping("/my")
+    public List<Task> getMyTasks(Principal principal) {
         return taskService.getAllByUserLogin(principal.getName());
     }
 
-    @GetMapping("/title")
-    public List<Task> searchByTitle(@RequestHeader String title) {
-        return taskService.searchByTitle(title);
-    }
-
-    @GetMapping("/text")
-    public List<Task> searchByText(@RequestHeader String text) {
-        return taskService.searchByText(text);
-    }
+//    @GetMapping("/title")
+//    public List<Task> searchByTitle(@RequestHeader String title) {
+//        return taskService.searchByTitle(title);
+//    }
+//
+//    @GetMapping("/text")
+//    public List<Task> searchByText(@RequestHeader String text) {
+//        return taskService.searchByText(text);
+//    }
 }
